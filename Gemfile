@@ -11,6 +11,10 @@ group :assets do
 end
 
 group :development do
+  gem 'thin'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'pry-rails'
   gem 'sqlite3'
   gem 'pry'
   gem 'pry-nav'

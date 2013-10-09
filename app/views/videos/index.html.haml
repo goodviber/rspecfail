@@ -1,0 +1,19 @@
+:css
+	.video_container {
+		width: 220px;
+		height: 360px;
+		margin: 10px;
+		margin-top:30px;
+	}
+
+%h3 video#index
+
+- @categories.each do |category|
+	%ul
+		%li.bold= category.name
+		- @videos.each do |video|
+			- video.categories.each do |video_category|
+				-if video_category.name == category.name
+					=# video.title
+					= link_to(image_tag(video.small_cover_url, alt: 'Video', title: video.title), video_path(video)) 
+	%br

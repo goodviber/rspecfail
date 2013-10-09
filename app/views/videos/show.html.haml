@@ -1,0 +1,23 @@
+:css
+	#video_main_container {
+	float:left;
+	width:70%;
+	padding-left:20%
+	}
+	.video_info_container {
+	width:30%;
+	float:right;
+	}
+	.video_img_container {
+	witdth:50%;
+	height:30%;
+	float:left;
+	}
+%h3 video#show
+#video_main_container
+	.video_info_container
+		%ul
+			%li= @video.title
+			%li= @video.description
+	.video_image_container
+		=image_tag (@video.large_cover_url)
