@@ -10,7 +10,7 @@
 
 - @categories.each do |category|
 	%ul
-		%li.bold= category.name
+		%li= category.name
 		- @videos.each do |video|
 			- video.categories.each do |video_category|
 				-if video_category.name == category.name
