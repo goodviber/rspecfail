@@ -1,0 +1,15 @@
+:css
+	.video_container {
+		display: inline
+		width: 220px;
+		height: 360px;
+		margin: 10px;
+		margin-top:30px;
+	}
+
+%h3 video#search
+
+- @results.each do |video|
+	=# video.title
+	= link_to(image_tag(video.small_cover_url, alt: 'Video', title: video.title), video_path(video)) 
+	
