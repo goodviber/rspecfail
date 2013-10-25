@@ -1,23 +1,48 @@
 :css
-	#video_main_container {
-	float:left;
-	width:70%;
-	padding-left:20%
-	}
-	.video_info_container {
-	width:30%;
-	float:right;
-	}
-	.video_img_container {
-	witdth:50%;
-	height:30%;
-	float:left;
-	}
+  #video_main_container {
+  float:left;
+  width:70%;
+  padding-left:20%
+  }
+  .video_info_container {
+  width:30%;
+  float:right;
+  }
+  .video_img_container {
+  witdth:50%;
+  height:30%;
+  float:left;
+  }
 %h3 video#show
 #video_main_container
-	.video_info_container
-		%ul
-			%li= @video.title
-			%li= @video.description
-	.video_image_container
-		=image_tag (@video.large_cover_url)
+  .video_info_container
+    %ul
+      %li= @video.title
+      %li= @video.description
+  .video_image_container
+    =image_tag (@video.large_cover_url)
+
+%section.reviews.container
+  .row
+    .span10.offset1
+      %br
+      = form_for [@video, Review.new] do |f|
+        %fieldset
+          %label Rate this video
+          =  f.select :rating, options_for_select([5,4,3,2,1].map{|number| [pluralize(number, "Star")]})
+          %label Write Review
+          = f.text_area :content, rows: 6, class: "span6"
+        %fieldset.actions.clearfix
+          %input(type="submit" value="Submit" class="btn")
+          %a(href="") Cancel
+      %header
+        %h3 User Reviews (#{@reviews.count})
+      %ul
+        - @reviews.each do |review|
+          %article.review
+            %li.row
+              .span2
+                %span Rating: #{@review.rating}/5
+                %p by <a href="">#{review.user.full_name}</a>
+              .span8
+                %p= review.content

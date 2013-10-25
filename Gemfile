@@ -3,6 +3,10 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'haml-rails'
 gem 'bootstrap-sass'
+gem 'bootstrap_form'
+gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'fabrication'
+gem 'faker'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -12,7 +16,6 @@ end
 
 group :development do
   gem 'thin'
-  gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'sqlite3'

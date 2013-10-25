@@ -11,10 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131007115935) do
+ActiveRecord::Schema.define(:version => 20131025103037) do
 
   create_table "categories", :force => true do |t|
     t.string "name"
+  end
+
+  create_table "reviews", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "video_id"
+    t.integer  "rating"
+    t.text     "content"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "full_name"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "video_categories", :force => true do |t|
