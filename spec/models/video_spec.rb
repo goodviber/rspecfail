@@ -3,6 +3,7 @@ require 'spec_helper'
 describe Video do
 	
 	it {should have_many(:categories).through(:video_categories)}
+	it {should have_many(:reviews).order("created_at DESC")}
 
 	describe "search_by_title" do 
 
