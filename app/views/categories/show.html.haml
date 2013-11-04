@@ -3,3 +3,4 @@
 	%ul
 		%li= video.title
 		%li= video.description
+		= link_to(image_tag(video.small_cover_url, alt: 'Video', title: video.title), video_path(video)) 
