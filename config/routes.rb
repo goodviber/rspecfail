@@ -15,4 +15,6 @@ Myflix::Application.routes.draw do
   resources :categories
   resources :users, only: [:new, :create]
   resources :sessions, only: [:create]
+  resources :queue_items, only: [:create, :destroy]
+  post 'update_queue', to: 'queue_items#update_queue'
 end

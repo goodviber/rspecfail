@@ -14,13 +14,18 @@
   float:left;
   }
 %h3 video#show
-#video_main_container
-  .video_info_container
-    %ul
-      %li= @video.title
-      %li= @video.description
-  .video_image_container
-    =image_tag (@video.large_cover_url)
+%article.video
+  .container
+    .row
+      .video_large_cover.span7.offset1
+        =image_tag (@video.large_cover_url)
+      .video_info.span3
+        %ul
+          %li= @video.title
+          %li= @video.description
+        .actions
+          %a.btn.btn-primary(href="") Watch Now
+          = link_to "+My Queue", queue_items_path(video_id: @video.id), method: :post, class: 'btn'
 
 %section.reviews.container
   .row
